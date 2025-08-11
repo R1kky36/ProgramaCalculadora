@@ -1,4 +1,4 @@
-// calculadora.cpp (Versión con conflicto resuelto)
+// calculadora.cpp (Versión con función de módulo)
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -47,6 +47,14 @@ double logaritmoNatural(double a) {
     return log(a);
 }
 
+double modulo(double a, double b) {
+    if (b == 0) {
+        cout << "Error: Módulo por cero no permitido." << endl;
+        return 0;
+    }
+    return fmod(a, b);
+}
+
 int main() {
     double num1, num2;
     char operacion;
@@ -55,7 +63,7 @@ int main() {
     if (cin.peek() != '\n') {
         cin >> num2;
     }
-    cout << "Ingrese operación (+, -, *, /, r, l, n): ";
+    cout << "Ingrese operación (+, -, *, /, r, l, n, %): ";
     cin >> operacion;
 
     switch (operacion) {
@@ -79,6 +87,9 @@ int main() {
             break;
         case 'n':
             cout << "Resultado: " << logaritmoNatural(num1) << endl;
+            break;
+        case '%':
+            cout << "Resultado: " << modulo(num1, num2) << endl;
             break;
         default:
             cout << "Operación no válida." << endl;
