@@ -1,4 +1,5 @@
-// calculadora.cpp (Versión con función de raíz cuadrada)
+
+// calculadora.cpp (Versión con función de logaritmo)
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -31,15 +32,23 @@ double raizCuadrada(double a) {
     return sqrt(a);
 }
 
+double logaritmo(double a) {
+    if (a <= 0) {
+        cout << "Error: Logaritmo de número no positivo no permitido." << endl;
+        return 0;
+    }
+    return log10(a);
+}
+
 int main() {
     double num1, num2;
     char operacion;
-    cout << "Ingrese un número (para raíz cuadrada) o dos números (para otras operaciones): ";
+    cout << "Ingrese un número (para raíz cuadrada o logaritmo) o dos números (para otras operaciones): ";
     cin >> num1;
     if (cin.peek() != '\n') {
         cin >> num2;
     }
-    cout << "Ingrese operación (+, -, *, /, r): ";
+    cout << "Ingrese operación (+, -, *, /, r, l): ";
     cin >> operacion;
 
     switch (operacion) {
@@ -58,9 +67,11 @@ int main() {
         case 'r':
             cout << "Resultado: " << raizCuadrada(num1) << endl;
             break;
+        case 'l':
+            cout << "Resultado: " << logaritmo(num1) << endl;
+            break;
         default:
             cout << "Operación no válida." << endl;
     }
     return 0;
 }
-  
