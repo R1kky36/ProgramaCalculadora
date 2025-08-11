@@ -1,4 +1,4 @@
-// calculadora.cpp (Versión con función logaritmoNatural)
+// calculadora.cpp (Versión con conflicto resuelto)
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -31,6 +31,14 @@ double raizCuadrada(double a) {
     return sqrt(a);
 }
 
+double logaritmo(double a) {
+    if (a <= 0) {
+        cout << "Error: Logaritmo de número no positivo no permitido." << endl;
+        return 0;
+    }
+    return log10(a);
+}
+
 double logaritmoNatural(double a) {
     if (a <= 0) {
         cout << "Error: Logaritmo natural de número no positivo no permitido." << endl;
@@ -42,12 +50,12 @@ double logaritmoNatural(double a) {
 int main() {
     double num1, num2;
     char operacion;
-    cout << "Ingrese un número (para raíz cuadrada o logaritmo natural) o dos números (para otras operaciones): ";
+    cout << "Ingrese un número (para raíz cuadrada, logaritmo o logaritmo natural) o dos números (para otras operaciones): ";
     cin >> num1;
     if (cin.peek() != '\n') {
         cin >> num2;
     }
-    cout << "Ingrese operación (+, -, *, /, r, l): ";
+    cout << "Ingrese operación (+, -, *, /, r, l, n): ";
     cin >> operacion;
 
     switch (operacion) {
@@ -67,6 +75,9 @@ int main() {
             cout << "Resultado: " << raizCuadrada(num1) << endl;
             break;
         case 'l':
+            cout << "Resultado: " << logaritmo(num1) << endl;
+            break;
+        case 'n':
             cout << "Resultado: " << logaritmoNatural(num1) << endl;
             break;
         default:
