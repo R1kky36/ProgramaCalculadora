@@ -1,5 +1,6 @@
-// calculadora.cpp (Versión inicial sin punteros)
+// calculadora.cpp (Versión con función de potencia)
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 double sumar(double a, double b) {
@@ -22,12 +23,16 @@ double dividir(double a, double b) {
     return a / b;
 }
 
+double potencia(double base, double exponente) {
+    return pow(base, exponente);
+}
+
 int main() {
     double num1, num2;
     char operacion;
     cout << "Ingrese dos números: ";
     cin >> num1 >> num2;
-    cout << "Ingrese operación (+, -, *, /): ";
+    cout << "Ingrese operación (+, -, *, /, ^): ";
     cin >> operacion;
 
     switch (operacion) {
@@ -42,6 +47,9 @@ int main() {
             break;
         case '/':
             cout << "Resultado: " << dividir(num1, num2) << endl;
+            break;
+        case '^':
+            cout << "Resultado: " << potencia(num1, num2) << endl;
             break;
         default:
             cout << "Operación no válida." << endl;
